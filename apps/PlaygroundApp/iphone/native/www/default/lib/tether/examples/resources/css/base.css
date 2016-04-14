@@ -1,0 +1,12 @@
+
+/* Stylesheet content from lib/tether/examples/resources/css/base.css in folder common */
+body {
+    font-family: "Helvetica Neue", sans-serif;
+    color: #444;
+    margin: 0px;
+}
+
+a {
+    cursor: pointer;
+    color: blue;
+}

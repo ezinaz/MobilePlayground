@@ -1,0 +1,50 @@
+<!DOCTYPE HTML><html>
+    <head>
+        <meta charset="UTF-8">
+        <title>PlaygroundApp</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
+			<!-- lib styles -->
+        <link href="worklight/worklight.css" rel="stylesheet">
+        <link href="lib/foundation-apps/dist/css/foundation-apps.min.css" rel="stylesheet">
+			<!-- app styles -->
+        <link href="css/main.css" rel="stylesheet">
+        <script>
+		// Define WL namespace.
+		var WL = WL ? WL : {};
+		/**
+		 * WLClient configuration variables.
+		 * Values are injected by the deployer that packs the gadget.
+		 */
+		 WL.StaticAppProps = {
+   "APP_DISPLAY_NAME": "PlaygroundApp",
+   "APP_ID": "PlaygroundApp",
+   "APP_SERVICES_URL": "\/apps\/services\/",
+   "APP_VERSION": "1.0",
+   "ENVIRONMENT": "iphone",
+   "LOGIN_DISPLAY_TYPE": "embedded",
+   "WORKLIGHT_NATIVE_VERSION": "1304149125",
+   "WORKLIGHT_PLATFORM_VERSION": "7.1.0.0",
+   "WORKLIGHT_ROOT_URL": "\/apps\/services\/api\/PlaygroundApp\/iphone\/"
+};
+</script>
+		<script src="worklight/cordova.js"></script>
+		<script src="worklight/wljq.js"></script>
+		<script src="worklight/worklight.js"></script>
+		<script src="worklight/checksum.js"></script>
+		<script>window.$ = window.jQuery = WLJQ;</script>
+    </head>
+    <body style="display: none;">
+        <ui-view></ui-view>
+			<!-- lib js -->
+        <script src="lib/angular/angular.min.js"></script>
+			<script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+			<script src="lib/angular-animate/angular-animate.min.js"></script>
+			<script src="lib/foundation-apps/dist/js/foundation-apps.min.js"></script>
+			<!-- app js -->
+    		<script src="js/app.wl.js"></script>
+			<script src="js/app.modules.js"></script>
+			<script src="js/app.routes.js"></script>
+			<script src="js/app.ctrl.js"></script>
+			<script src="js/app.run.js"></script>
+    </body>
+</html>

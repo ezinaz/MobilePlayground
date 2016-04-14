@@ -9,6 +9,7 @@ common.android=3550857402
 eclipse.preferences.version=1
 encoding//apps/PlaygroundApp/common/css/main.css=UTF-8
 encoding//apps/PlaygroundApp/common/index.html=UTF-8
+encoding//apps/PlaygroundApp/iphone/css/main.css=UTF-8
 encoding/<project>=UTF-8
 fipshttp.android=1587089148
 fipshttp.ipad=565493842

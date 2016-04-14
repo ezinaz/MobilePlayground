@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceDescription catalog="WSDL" id="getOrderStatusVS_ZqtcSalesorderSearch" adapter="soap" useNsPrefix="input">
+    <Name>ZqtcSalesorderSearch</Name>
+    <Description></Description>
+    <Schemas>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:n0="urn:sap-com:document:sap:rfc:functions" xmlns:n1="urn:sap-com:document:sap:rfc:functions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/" attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style">
+            
+            <xsd:simpleType name="char16">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="16"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char2">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char20">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="20"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char25">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="25"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char3">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="3"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char4">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="4"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char40">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="40"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="date10">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+                <xsd:pattern value="\d\d\d\d-\d\d-\d\d"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="numeric4">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="4"/>
+                <xsd:pattern value="\d*"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="quantum13.3">
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="13"/>
+                <xsd:fractionDigits value="3"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="ZttqtcProdhLines">
+              <xsd:sequence>
+                <xsd:element name="Prodh" type="tns:char4"/>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ZsqtcDeliveriesSearch">
+              <xsd:sequence>
+                <xsd:element name="SalesDoc" type="n0:char10"/>
+                <xsd:element name="SalesDocItem" type="n0:numeric6"/>
+                <xsd:element name="Delivery" type="n0:char10"/>
+                <xsd:element name="DeliveryItem" type="n0:numeric6"/>
+                <xsd:element name="DeliveryStatus" type="n0:char1"/>
+                <xsd:element name="PostGoodsIssueDate" type="n0:date10"/>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ZsqtcInvoices">
+              <xsd:sequence>
+                <xsd:element name="SalesDoc" type="n0:char10"/>
+                <xsd:element name="SalesDocItem" type="n0:numeric6"/>
+                <xsd:element name="InvoiceNo" type="n0:char10"/>
+                <xsd:element name="InvoiceItem" type="n0:numeric6"/>
+                <xsd:element name="BillingType" type="n0:char4"/>
+                <xsd:element name="InvoiceDate" type="n0:date10"/>
+                <xsd:element name="InvoiceAmount" type="n0:curr15.2"/>
+                <xsd:element name="Currency" type="n0:cuky5"/>
+                <xsd:element name="InvoiceQuantity" type="n0:quantum13.3"/>
+                <xsd:element name="Reference" type="tns:char16"/>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ZsqtcSaleorder">
+              <xsd:sequence>
+                <xsd:element name="OrderType" type="n0:char4"/>
+                <xsd:element name="CustomerPo" type="n0:char35"/>
+                <xsd:element name="SalesOrder" type="n0:char10"/>
+                <xsd:element name="BookDate" type="n0:date10"/>
+                <xsd:element name="StatusCode" type="n0:char1"/>
+                <xsd:element name="ShipToName" type="n0:char35"/>
+                <xsd:element name="EndUserName" type="n0:char35"/>
+                <xsd:element name="Currency" type="n0:cuky5"/>
+                <xsd:element name="OrderAmount" type="n0:curr15.2"/>
+                <xsd:element name="EndUserPo" type="n0:char35"/>
+                <xsd:element name="OrderStatus" type="tns:char2"/>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ZsqtcSaleorderSchedule">
+              <xsd:sequence>
+                <xsd:element name="OrderNum" type="n0:char10"/>
+                <xsd:element name="OrderItem" type="n0:numeric6"/>
+                <xsd:element name="ScheduleLineItem" type="tns:numeric4"/>
+                <xsd:element name="EstDeliDate" type="tns:date10"/>
+                <xsd:element name="ConfirQty" type="tns:quantum13.3"/>
+                <xsd:element name="OrderQty" type="tns:quantum13.3"/>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ZttqtcChar4">
+              <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:char4"/>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ZttqtcProdh">
+              <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:ZttqtcProdhLines"/>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ZttqtcDeliveriesSearch">
+              <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:ZsqtcDeliveriesSearch"/>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ZttqtcInvoices">
+              <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:ZsqtcInvoices"/>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ZttqtcSaleorder">
+              <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:ZsqtcSaleorder"/>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ZttqtcSaleorderSchedule">
+              <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:ZsqtcSaleorderSchedule"/>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="ZqtcSalesorderSearch">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="0" name="AgreementId" type="tns:char25"/>
+                  <xsd:element minOccurs="0" name="AvnetPo" type="n0:char10"/>
+                  <xsd:element minOccurs="0" name="Country" type="tns:char3"/>
+                  <xsd:element minOccurs="0" name="CustPartNo" type="n0:char35"/>
+                  <xsd:element minOccurs="0" name="CustomerId" type="n0:char10"/>
+                  <xsd:element minOccurs="0" name="CustomerPo" type="n0:char35"/>
+                  <xsd:element minOccurs="0" name="CustomerRefid" type="n0:char12"/>
+                  <xsd:element minOccurs="0" name="DeliveryDoc" type="n0:char10"/>
+                  <xsd:element minOccurs="0" name="EdFromDate" type="n0:date10"/>
+                  <xsd:element minOccurs="0" name="EdToDate" type="n0:date10"/>
+                  <xsd:element minOccurs="0" name="EndUserName" type="n0:char35"/>
+                  <xsd:element minOccurs="0" name="EndUserPo" type="n0:char35"/>
+                  <xsd:element minOccurs="0" name="FromDate" type="n0:date10"/>
+                  <xsd:element minOccurs="0" name="InvoiceNo" type="n0:char10"/>
+                  <xsd:element minOccurs="0" name="ManfPartNo" type="n0:char40"/>
+                  <xsd:element minOccurs="0" name="Manufacturer" type="n0:char10"/>
+                  <xsd:element minOccurs="0" name="OrderType" type="tns:ZttqtcChar4"/>
+                  <xsd:element minOccurs="0" name="Prodhierarchy" type="tns:ZttqtcProdh"/>
+                  <xsd:element minOccurs="0" name="ReleaseNo" type="n0:char12"/>
+                  <xsd:element minOccurs="0" name="SalesOrder" type="n0:char10"/>
+                  <xsd:element name="SearchType" type="n0:char2"/>
+                  <xsd:element minOccurs="0" name="SerialNumber" type="n0:char40"/>
+                  <xsd:element minOccurs="0" name="ShipToName" type="n0:char35"/>
+                  <xsd:element minOccurs="0" name="State" type="tns:char3"/>
+                  <xsd:element minOccurs="0" name="SupContractNo" type="tns:char40"/>
+                  <xsd:element minOccurs="0" name="SupProposalNo" type="tns:char20"/>
+                  <xsd:element minOccurs="0" name="ToDate" type="n0:date10"/>
+                  <xsd:element minOccurs="0" name="VendSaleOrder" type="n0:char15"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ZqtcSalesorderSearchResponse">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="DeliveryNos" type="tns:ZttqtcDeliveriesSearch"/>
+                  <xsd:element name="InvoiceNos" type="tns:ZttqtcInvoices"/>
+                  <xsd:element name="Saleorders" type="tns:ZttqtcSaleorder"/>
+                  <xsd:element name="SaleordersSchedule" type="tns:ZttqtcSaleorderSchedule"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:n1="urn:sap-com:document:sap:rfc:functions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/" attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:rfc:functions">
+            <xsd:simpleType name="char1">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="1"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char10">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char12">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="12"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char15">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="15"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char2">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char35">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="35"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char4">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="4"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char40">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="40"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="cuky5">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="5"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="curr15.2">
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="15"/>
+                <xsd:fractionDigits value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="date10">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+                <xsd:pattern value="\d\d\d\d-\d\d-\d\d"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="numeric6">
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="6"/>
+                <xsd:pattern value="\d*"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="quantum13.3">
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="13"/>
+                <xsd:fractionDigits value="3"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:schema>
+    </Schemas>
+    <Procedure>
+        <Input>
+            <Parameter xmlns:ns2="urn:sap-com:document:sap:soap:functions:mc-style" elementName="ns2:ZqtcSalesorderSearch" elementType="ns2:ZqtcSalesorderSearch"/>
+        </Input>
+        <Output>
+            <Parameter xmlns:ns2="urn:sap-com:document:sap:soap:functions:mc-style" elementName="ns2:ZqtcSalesorderSearchResponse" elementType="ns2:ZqtcSalesorderSearchResponse"/>
+        </Output>
+    </Procedure>
+    <ProviderAttributes>
+        <item>
+            <name>bindingDescription</name>
+            <value></value>
+        </item>
+        <item>
+            <name>nsUri</name>
+            <value>urn:sap-com:document:sap:soap:functions:mc-style</value>
+        </item>
+        <item>
+            <name>endpointUrl</name>
+            <value>http://wm8-extmsg-dev2.avnet.com:5555/ws/getOrderStatusVS</value>
+        </item>
+        <item>
+            <name>portName</name>
+            <value>getOrderStatusVSsoap12http</value>
+        </item>
+        <item>
+            <name>soapAction</name>
+            <value>urn:sap-com:document:sap:soap:functions:mc-style:ZWS_QTC_SALESORDER_SEARCH:ZqtcSalesorderSearchRequest</value>
+        </item>
+        <item>
+            <name>inputNS</name>
+            <value>xmlns:n0="urn:sap-com:document:sap:rfc:functions" xmlns:n1="urn:sap-com:document:sap:rfc:functions" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/" </value>
+        </item>
+        <item>
+            <name>serviceName</name>
+            <value>getOrderStatusVS</value>
+        </item>
+        <item>
+            <name>bindingName</name>
+            <value>ZqtcSalesorderSearch_SOAP12</value>
+        </item>
+        <item>
+            <name>soapVersion</name>
+            <value>SOAP v1.2</value>
+        </item>
+    </ProviderAttributes>
+    <SystemParameters/>
+</ServiceDescription>
