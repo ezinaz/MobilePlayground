@@ -1,0 +1,64 @@
+angular.module('playground')
+
+    .factory('Orders', Orders);
+
+
+/**
+ * @name Orders
+ * @desc Service for managing Order data
+ */
+
+
+function Orders($q) {
+
+    var service = {};
+
+    //bindables
+    service.orders = [];
+
+    service.fetchOrders = fetchOrders;
+
+
+    //internals
+
+
+    function fetchOrders(searchObject) {
+        var deferred = $q.defer();
+
+        console.log('Orders: fetchOrders: ', searchObject);
+
+
+        var invocationData = {
+            adapter: 'Orders',
+            procedure: 'getOrders',
+            parameters: [searchObject.customerId, searchObject.customerPo, searchObject.searchType]
+        };
+
+        console.log('Orders: fetchOrders', invocationData);
+
+        WL.Client.invokeProcedure(invocationData, {
+            onSuccess: loadFeedsSuccess,
+            onFailure: loadFeedsFailure
+        });
+
+
+        function loadFeedsSuccess(result) {
+            console.log('Orders: fetchOrders: success', result, result.responseJSON.Envelope.Body.ZqtcSalesorderSearchResponse.Saleorders.item);
+            var salesOrders = result.responseJSON.Envelope.Body.ZqtcSalesorderSearchResponse.Saleorders.item;
+            deferred.resolve(salesOrders);
+        }
+
+        function loadFeedsFailure(result) {
+            console.log('Orders: fetchOrders: error', result);
+            deferred.reject(result);
+        }
+
+
+        return deferred.promise;
+    }
+
+
+    return service;
+}
+
+Orders.$inject = ['$q'];
