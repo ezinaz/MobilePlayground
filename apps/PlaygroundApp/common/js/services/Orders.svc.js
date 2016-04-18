@@ -27,11 +27,16 @@ function Orders($q) {
 
         console.log('Orders: fetchOrders: ', searchObject);
 
+        var options = {
+        		customerId: searchObject.customerId, 
+        		customerPo: searchObject.customerPo, 
+        		searchType: searchObject.searchType
+        }
 
         var invocationData = {
             adapter: 'Orders',
             procedure: 'getOrders',
-            parameters: [searchObject.customerId, searchObject.customerPo, searchObject.searchType]
+            parameters: [options]
         };
 
         console.log('Orders: fetchOrders', invocationData);

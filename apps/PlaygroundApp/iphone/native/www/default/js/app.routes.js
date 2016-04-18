@@ -20,7 +20,8 @@ angular.module('playground')
 
             .state('app.orders', {
                 url: '/orders',
-                templateUrl: 'templates/orders.html'
+                templateUrl: 'templates/orders.html',
+                controller: 'OrdersCtrl'
             });
 
 

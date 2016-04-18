@@ -34,7 +34,7 @@
 		<script>window.$ = window.jQuery = WLJQ;</script>
     </head>
     <body style="display: none;">
-        <ui-view></ui-view>
+        <ui-view class="grid-frame"></ui-view>
 			<!-- lib js -->
         <script src="lib/angular/angular.min.js"></script>
 			<script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -46,5 +46,9 @@
 			<script src="js/app.routes.js"></script>
 			<script src="js/app.ctrl.js"></script>
 			<script src="js/app.run.js"></script>
+			<!-- controllers -->
+			<script src="js/controllers/orders.ctrl.js"></script>
+			<!-- services -->
+			<script src="js/services/Orders.svc.js"></script>
     </body>
 </html>
