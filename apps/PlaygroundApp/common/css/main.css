@@ -1,3 +1,5 @@
-ui-view.ng-scope{
-    width:100%;
-}
+body {
+  background-color: green; }
+
+ui-view.ng-scope {
+  width: 100%; }
