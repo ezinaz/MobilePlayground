@@ -1,8 +1,11 @@
 
 /* Stylesheet content from css/main.css in folder common */
-ui-view.ng-scope{
-    width:100%;
-}
+body {
+  background-color: green; }
+
+ui-view.ng-scope {
+  width: 100%; }
+
 /* Stylesheet content from css/main.css in folder iphone */
 
 /* this CSS file extends the application CSS file found under common\css */

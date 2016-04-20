@@ -1,19 +1,17 @@
 
 /**
- * 
- * @param customerId, customerPo, searchType
+ * Note: SOAP 1.2
+ * @param options params:customerId, customerPo, searchType
  * @returns object list of orders
  */
 function getOrders(options) {
 
 	var path = 'mediator-dev2/ws/getMobOrderStatusVS';
 
-	
-	var customerId = options.customerId | '0009000004';
-	var customerPo = options.customerPo |'123';
-	var searchType = options.searchType |'PO';
-	
-	
+	var customerId = options.customerId ? options.customerId : '0009000004';
+	var customerPo = options.customerPo ? options.customerPo : '123';
+	var searchType = options.searchType ? options.searchType : 'PO';
+
 	var soapRequestString = 
 		'<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:sap-com:document:sap:soap:functions:mc-style">'
 			+ '<soap:Header/>'
@@ -35,6 +33,8 @@ function getOrders(options) {
 			contentType : 'application/soap+xml;charset=UTF-8'
 		}
 	};
+
+	WL.Logger.info(input);
 
 	return WL.Server.invokeHttp(input);
 }

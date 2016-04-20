@@ -8,15 +8,11 @@ angular.module('playground')
     .controller('HomeCtrl', HomeCtrl);
 
 
-function HomeCtrl($scope) {
+function HomeCtrl($scope, Users) {
     console.log('HomeCtrl: load');
 
     //bindable variables
-    $scope.permissions = {
-        requests: true,
-        orders: true,
-        invoices: false
-    };
+    $scope.permissions = {};  //TODO: hide/show tools based on permissions
 
     $scope.tools = [
         {
@@ -34,11 +30,24 @@ function HomeCtrl($scope) {
     ];
 
 
-    function checkPermissions(){
+    //internals
 
+    function activate(){
+        console.log('HomeCtrl: activate');
+        getRoles();
     }
+
+    function getRoles(){
+        Users.fetchRoles().then(function(result){
+            console.log('HomeCtrl: getRoles: success', result);
+        }, function(){
+            console.log('HomeCtrl: getRoles: error', result);
+        })
+    }
+
+    activate();
 
 }
 
-HomeCtrl.$inject = ['$scope'];
+HomeCtrl.$inject = ['$scope', 'Users'];
 
