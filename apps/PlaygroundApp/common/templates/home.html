@@ -6,9 +6,9 @@
         <div ng-show="tools.length">
             <section class="block-list">
                 <ul>
-                    <li class="cc-list-item" ng-repeat="tool in tools">
-                        <a href="#/app/{{tool.state}}">
-                            <h6>{{tool.name}}</h6>
+                    <li class="cc-list-item" ng-repeat="tool in tools" ng-if="permissions[tool.state]" >
+                        <a href="#/app/{{::tool.state}}">
+                            <h6>{{::tool.name}}</h6>
                         </a>
                     </li>
                 </ul>

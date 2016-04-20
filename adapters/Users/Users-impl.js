@@ -9,10 +9,11 @@ function getRoles(options) {
 	
 	var path = 'mediator-dev2/ws/getMobLdapPersonVS'
 	
-	var customerId = options.customerId;
+	var userId = options.userId;
 	var firstName = options.firstName;
 	var lastName = options.lastName;
 	var email = options.email;
+	var location = options.location;
 	
 	var soapRequestString = 
 		'<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://carob1/AvAsapIdentityManagementSystem/Public/getLdapPerson_Wsd">'
@@ -20,12 +21,12 @@ function getRoles(options) {
 			+ '<soap:Body>'
 				+ '<get:getLdapPerson>'
 					+ '<getLdapPersonRequest>'
-						+ '<id>' + email + '</id>'
+						+ '<id>' + userId + '</id>'
 						+ '<firstName>' + firstName + '</firstName>'
 						+ '<lastName>' + lastName + '</lastName>'
 						+ '<email>' + email + '</email>'
 						+ '<retrieveRoles>true</retrieveRoles>'
-						+ '<location>EXTERNAL</location>'
+						+ '<location>' + location + '</location>'
 					+ '</getLdapPersonRequest>'
 				+ '</get:getLdapPerson>'
 			+ '</soap:Body>'
