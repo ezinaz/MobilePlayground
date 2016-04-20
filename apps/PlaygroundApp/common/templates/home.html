@@ -1,0 +1,27 @@
+<div class="primary title-bar">
+    <div class="center title">Channel Connection</div>
+</div>
+<div class="grid-block vertical">
+    <div class="grid-content">
+        <div ng-show="tools.length">
+            <section class="block-list">
+                <ul>
+                    <li class="cc-list-item" ng-repeat="tool in tools">
+                        <a href="#/app/{{tool.state}}">
+                            <h6>{{tool.name}}</h6>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div ng-show="!tools.length">
+            <section class="block-list">
+                <ul>
+                    <li class="cc-empty">
+                        <p>You don't have access to any of the awesome tools Avnet offers.</p>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</div>

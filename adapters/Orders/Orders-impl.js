@@ -4,13 +4,15 @@
  * @param customerId, customerPo, searchType
  * @returns object list of orders
  */
-function getOrders(customerId, customerPo, searchType) {
+function getOrders(options) {
 
-	var path = 'mediator-dev2/ws/getOrderStatusVS';
+	var path = 'mediator-dev2/ws/getMobOrderStatusVS';
 
-	var customerId = customerId | '0009000004';
-	var customerPo = customerPo | '123';
-	var searchType = searchType | 'PO';
+	
+	var customerId = options.customerId | '0009000004';
+	var customerPo = options.customerPo |'123';
+	var searchType = options.searchType |'PO';
+	
 	
 	var soapRequestString = 
 		'<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:sap-com:document:sap:soap:functions:mc-style">'
