@@ -8,9 +8,11 @@
 /js/app.routes.js
 /js/app.run.js
 /js/app.wl.js
+/js/controllers/home.ctrl.js
 /js/controllers/orders.ctrl.js
 /js/main.js
 /js/services/Orders.svc.js
+/js/services/Users.svc.js
 /lib/angular-animate/.bower.json
 /lib/angular-animate/angular-animate.js
 /lib/angular-animate/angular-animate.min.js
@@ -550,7 +552,12 @@
 /lib/viewport-units-buggyfill/package.json
 /lib/viewport-units-buggyfill/viewport-units-buggyfill.hacks.js
 /lib/viewport-units-buggyfill/viewport-units-buggyfill.js
+/scss/components/_lists.scss
+/scss/layout/_views.scss
+/scss/main.scss
+/scss/theme/_colors.scss
 /templates/app.html
+/templates/home.html
 /templates/orders.html
 /worklight/cordova.js
 /worklight/cordova_plugins.js
