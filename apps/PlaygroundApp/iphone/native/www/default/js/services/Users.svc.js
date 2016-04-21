@@ -17,9 +17,13 @@ function Users($q) {
 	service.userObject = {
 			firstName : '',
 			lastName : '',
-			email : 'conner.austin@siriuscom.com',
+			logonId : 'conner.austin@siriuscom.com',
 			customerId : ''
 		};
+	
+	function setLogonId (loginObject){
+		service.loginId = loginObject.logonId;
+	}
 
 	service.permissions = {
 		requests: false,

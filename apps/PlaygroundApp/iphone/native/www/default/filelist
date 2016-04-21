@@ -9,6 +9,7 @@
 /js/app.run.js
 /js/app.wl.js
 /js/controllers/home.ctrl.js
+/js/controllers/login.ctrl.js
 /js/controllers/orders.ctrl.js
 /js/main.js
 /js/services/Orders.svc.js
@@ -557,7 +558,9 @@
 /scss/main.scss
 /scss/theme/_colors.scss
 /templates/app.html
+/templates/certificates/readme.txt
 /templates/home.html
+/templates/login.html
 /templates/orders.html
 /worklight/cordova.js
 /worklight/cordova_plugins.js
