@@ -12,7 +12,7 @@ function HomeCtrl($scope, Users) {
     console.log('HomeCtrl: load');
 
     //bindable variables
-    $scope.permissions = {};  //TODO: hide/show tools based on permissions
+    $scope.permissions = Users.userData.permissions;  //TODO: hide/show tools based on permissions
 
     $scope.tools = [
         {
@@ -35,25 +35,6 @@ function HomeCtrl($scope, Users) {
 
     function activate(){
         console.log('HomeCtrl: activate');
-        getPermissions();
-        //getRoles();
-    }
-
-    function getRoles(){
-        Users.fetchRoles().then(function(result){
-            console.log('HomeCtrl: getRoles: success', result);
-        }, function(){
-            console.log('HomeCtrl: getRoles: error', result);
-        })
-    }
-    
-    function getPermissions() {
-    	Users.fetchPermissions().then(function(permissions){
-            //console.log('HomeCtrl: getPermissions: success', result);
-    		$scope.permissions = permissions;
-        }, function(){
-            //console.log('HomeCtrl: getPermissions: error', result);
-        })    		
     }
 
     activate();
