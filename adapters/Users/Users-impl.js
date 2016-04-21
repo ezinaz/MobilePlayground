@@ -14,6 +14,7 @@ function getUser(logonId) {
 	var isExternal;
 	var userFound = false;
 	
+<<<<<<< HEAD
 	// External lookup
 	var soapRequestString = getSoapRequestString(logonId, EXTERNAL);
 	var input = getInput(PATH, soapRequestString);
@@ -46,6 +47,30 @@ function getUser(logonId) {
 			isSuccessful: false 
 		}
 	}
+=======
+	var userId = options.userId;
+	var firstName = options.firstName;
+	var lastName = options.lastName;
+	var email = options.email;
+	var location = options.location;
+	
+	var soapRequestString = 
+		'<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://carob1/AvAsapIdentityManagementSystem/Public/getLdapPerson_Wsd">'
+			+ '<soap:Header/>'
+			+ '<soap:Body>'
+				+ '<get:getLdapPerson>'
+					+ '<getLdapPersonRequest>'
+						+ '<id>' + userId + '</id>'
+						+ '<firstName>' + firstName + '</firstName>'
+						+ '<lastName>' + lastName + '</lastName>'
+						+ '<email>' + email + '</email>'
+						+ '<retrieveRoles>true</retrieveRoles>'
+						+ '<location>' + location + '</location>'
+					+ '</getLdapPersonRequest>'
+				+ '</get:getLdapPerson>'
+			+ '</soap:Body>'
+		+ '</soap:Envelope>';
+>>>>>>> upstream/master
 
 }
 

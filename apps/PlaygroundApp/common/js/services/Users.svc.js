@@ -7,7 +7,7 @@ angular.module('playground')
  * @desc Service for managing User data
  */
 
-function Users($q) {
+function Users($q,$timeout) {
 
 	var service = {};
 	
@@ -17,8 +17,9 @@ function Users($q) {
 	service.userObject = {
 			firstName : '',
 			lastName : '',
-			email : 'conner.austin@siriuscom.com',
-			customerId : ''
+			email : '',
+			userId : '022498',
+			location: 'EXTERNAL'
 		};
 
 	service.permissions = {
@@ -29,6 +30,8 @@ function Users($q) {
 
 	//bindable methods
 	service.fetchRoles = fetchRoles;
+	service.fetchPermissions = fetchPermissions;
+	service.getUser = getUser;
 
 
 	//internals
@@ -68,6 +71,7 @@ function Users($q) {
 			deferred.resolve(result);
 		}
 
+<<<<<<< HEAD
 		function loadFailure(result) {
 			console.log('Users: getUser: error', result);
 			deferred.reject(result);
@@ -87,6 +91,90 @@ function Users($q) {
 		function getUserType() {
 			
 		}
+=======
+	function getUser(logonId) {
+		var deferred = $q.defer();
+		console.log('Users getUser', logonId);
+		
+		service.userObject.userId = logonId;
+		$timeout(function (){
+			deferred.resolve(true);
+		}, 500);
+		
+
+		return deferred.promise;
+	}
+	
+	function fetchPermissions() {
+		var deferred = $q.defer();
+
+		var useMockData = false;
+		
+		var error = {};
+
+		console.log('Users: getPermissions: ', service.userObject, 'useMockData: ', useMockData);
+
+		if(useMockData){
+			getRolesMock();
+		}else{
+			getRolesRemote();
+		}
+
+		function preparePermissions(rolesArray){
+			for(var i = 0; i < rolesArray.length; i++){
+				var role = rolesArray[i];
+				if(role.name == 'R2O_Allow_Submit_Request'){
+					service.permissions.requests = true;
+				}
+				if(role.name == 'Order_Status_NA'){
+					service.permissions.orders = true;
+					service.permissions.invoices = true;
+				}
+			}
+			return service.permissions;
+		}
+
+
+		function getRolesMock(){
+			var permissions = preparePermissions(mockRoles);
+			console.log('Users: fetchRoles: permissions', permissions);
+			deferred.resolve(permissions);
+		}
+
+		function getRolesRemote(){
+			var options = service.userObject;
+
+			var invocationData = {
+				adapter : 'Users',
+				procedure : 'getRoles',
+				parameters : [ options ]
+			};
+
+			console.log('Users: fetchRoles', invocationData);
+
+			WL.Client.invokeProcedure(invocationData, {
+				onSuccess : loadSuccess,
+				onFailure : loadFailure
+			});
+
+			function loadSuccess(result) {
+				console.log('Users: fetchRoles: success', result);
+				var roles = result.responseJSON.Envelope.Body.getLdapPersonResponse.getLdapPersonResponse.results.roles;
+				console.log('Users: fetchPermissions, loadSuccess: roles', roles);
+				var permissions = preparePermissions(roles);
+				console.log('Users: fetchPermissions, loadSuccess: permissions', permissions);
+				deferred.resolve(permissions);
+			}
+
+			function loadFailure(result) {
+				console.log('Users: fetchRoles: error', result);
+				error.message = 'There was an error';
+				deferred.reject(error);
+			}
+		}
+
+		return deferred.promise;
+>>>>>>> upstream/master
 	}
 
 	function fetchRoles() {
@@ -156,4 +244,4 @@ function Users($q) {
 	return service;
 }
 
-Users.$inject = [ '$q' ];
+Users.$inject = [ '$q', '$timeout'];
