@@ -7,7 +7,7 @@ angular.module('playground')
  * @desc Service for managing User data
  */
 
-function Users($q) {
+function Users($q,$timeout) {
 
 	var service = {};
 
@@ -17,7 +17,7 @@ function Users($q) {
 			lastName : '',
 			email : '',
 			userId : '022498',
-			location: 'INTERNAL'
+			location: 'EXTERNAL'
 		};
 
 	service.permissions = {
@@ -29,6 +29,7 @@ function Users($q) {
 	//bindable methods
 	service.fetchRoles = fetchRoles;
 	service.fetchPermissions = fetchPermissions;
+	service.getUser = getUser;
 
 
 	//internals
@@ -47,6 +48,19 @@ function Users($q) {
 		}
 	];
 
+	function getUser(logonId) {
+		var deferred = $q.defer();
+		console.log('Users getUser', logonId);
+		
+		service.userObject.userId = logonId;
+		$timeout(function (){
+			deferred.resolve(true);
+		}, 500);
+		
+
+		return deferred.promise;
+	}
+	
 	function fetchPermissions() {
 		var deferred = $q.defer();
 
@@ -184,4 +198,4 @@ function Users($q) {
 	return service;
 }
 
-Users.$inject = [ '$q' ];
+Users.$inject = [ '$q', '$timeout'];

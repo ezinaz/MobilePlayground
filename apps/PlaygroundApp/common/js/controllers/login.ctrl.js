@@ -8,12 +8,14 @@ angular.module('playground')
     .controller('LoginCtrl', LoginCtrl);
 
 
-function LoginCtrl($scope, setUserDetails) {
+function LoginCtrl($scope, Users, $state) {
     console.log('LoginCtrl: load');
 
     //BINDABLE VARS
     $scope.loginObject = {};
     $scope.loginObject.logonId = '';
+    
+    $scope.isLogonError = false;
 
     //BINDABLE FUNCS
     $scope.setUserDetails = setUserDetails;
@@ -23,14 +25,19 @@ function LoginCtrl($scope, setUserDetails) {
     //INTERNAL FUNCS
     function setUserDetails() {
         console.log('login: ', $scope.loginObject);
+        $scope.isLogonError = false;
         
-        User.setLogonId($scope.loginObject);
-       // $state.go(‘app.home’);
+        Users.getUser($scope.loginObject.logonId).then(function () {
+        	$state.go('app.home');
+        }, function() {
+        	$scope.isLogonError = true;
+        	console.log('Logon error');
+        });
 
         }
 
     
 }
 
-OrdersCtrl.$inject = ['$scope','$state','User'];
+LoginCtrl.$inject = ['$scope','Users','$state'];
 
