@@ -34,5 +34,6 @@
 		</connectionPolicy>
 	</connectivity>
 
-	<procedure name="getRoles"/>
+	<procedure name="getUser" audit="true"/>
+	
 </wl:adapter>
