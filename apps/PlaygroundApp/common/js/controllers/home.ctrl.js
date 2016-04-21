@@ -30,11 +30,13 @@ function HomeCtrl($scope, Users) {
     ];
 
 
+    
     //internals
 
     function activate(){
         console.log('HomeCtrl: activate');
-        getRoles();
+        getPermissions();
+        //getRoles();
     }
 
     function getRoles(){
@@ -43,6 +45,15 @@ function HomeCtrl($scope, Users) {
         }, function(){
             console.log('HomeCtrl: getRoles: error', result);
         })
+    }
+    
+    function getPermissions() {
+    	Users.fetchPermissions().then(function(permissions){
+            //console.log('HomeCtrl: getPermissions: success', result);
+    		$scope.permissions = permissions;
+        }, function(){
+            //console.log('HomeCtrl: getPermissions: error', result);
+        })    		
     }
 
     activate();

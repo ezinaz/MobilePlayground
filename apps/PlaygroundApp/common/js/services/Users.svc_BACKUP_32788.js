@@ -15,10 +15,19 @@ function Users($q) {
 	service.userObject = {
 			firstName : '',
 			lastName : '',
+<<<<<<< HEAD
+			logonId : 'conner.austin@siriuscom.com',
+			customerId : ''
+=======
 			email : '',
 			userId : '022498',
 			location: 'INTERNAL'
+>>>>>>> upstream/master
 		};
+	
+	function setLogonId (loginObject){
+		service.loginId = loginObject.logonId;
+	}
 
 	service.permissions = {
 		requests: false,
