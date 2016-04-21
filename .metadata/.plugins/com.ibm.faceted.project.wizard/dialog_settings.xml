@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="com.ibm.faceted.project.wizardFacetedProjectWizard.com.ibm.imp.worklight.project.wizard">
+		<item value="" key="projectFacets"/>
+		<item value="" key="projectTemplate"/>
+		<item value="" key="coreFacetSet"/>
+	</section>
+</section>

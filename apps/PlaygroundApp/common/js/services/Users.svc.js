@@ -10,6 +10,8 @@ angular.module('playground')
 function Users($q) {
 
 	var service = {};
+	
+	var userData = {};
 
 	//bindables
 	service.userObject = {
@@ -44,7 +46,48 @@ function Users($q) {
 			'description': 'Some description for another role'
 		}
 	];
+	
+	function getUser(logonId) {
+		var deferred = $q.defer();
+		console.log('Users: getUser: ', logonId);
+		
+		var invocationData = {
+				adapter : 'Users',
+				procedure : 'getUser',
+				parameters : [ logonId ]
+			};		
+		
+		WL.Client.invokeProcedure(invocationData, {
+			onSuccess : loadSuccess,
+			onFailure : loadFailure
+		});
 
+		function loadSuccess(result) {
+			console.log('Users: getUser: success', result);
+			userData = result.userData;
+			deferred.resolve(result);
+		}
+
+		function loadFailure(result) {
+			console.log('Users: getUser: error', result);
+			deferred.reject(result);
+		}		
+		
+		return deferred.promise;
+		
+	}
+
+	function fetchUserType() {
+		var deferred = $q.defer();
+		console.log('Users: fetchUserType: ', service.userObject);
+		getUserType();
+		
+		return "INTERNAL";
+		
+		function getUserType() {
+			
+		}
+	}
 
 	function fetchRoles() {
 		var deferred = $q.defer();
@@ -97,7 +140,8 @@ function Users($q) {
 
 			function loadSuccess(result) {
 				console.log('Users: fetchRoles: success', result);
-				deferred.resolve(result);
+				var roles = result.invocationResult.Envelope.Body.getLdapPersonResponse.getLdapPersonResponse.results.roles;
+				deferred.resolve(roles);
 			}
 
 			function loadFailure(result) {
