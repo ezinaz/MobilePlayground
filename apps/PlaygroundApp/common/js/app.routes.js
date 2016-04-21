@@ -21,6 +21,12 @@ angular.module('playground')
                 templateUrl: 'templates/home.html',
                 controller: 'HomeCtrl'
             })
+            
+            .state('app.login', {
+            	url: '/login',
+            	templateUrl: 'templates/login.html',
+            	controller: 'LoginCtrl'
+            })
 
             .state('app.orders', {
                 url: '/orders',
@@ -30,6 +36,6 @@ angular.module('playground')
 
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/home');
+        $urlRouterProvider.otherwise('/app/login');
 
     }]);
