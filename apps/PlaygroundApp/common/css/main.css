@@ -1,5 +1,49 @@
+/* ClanBook Font */
+@font-face {
+  font-family: "ClanBook";
+  src: url("fonts/ClanOT-Book.eot") format("eot"), url("fonts/ClanOT-Book.otf") format("otf"), url("fonts/ClanOT-Book.svg") format("svg"), url("fonts/ClanOT-Book.woff") format("woff"), url("fonts/ClanOT-Book.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+/* ClanMedium Font */
+@font-face {
+  font-family: "ClanMedium";
+  src: url("fonts/ClanOT-Medium.eot") format("eot"), url("fonts/ClanOT-Medium.otf") format("otf"), url("fonts/ClanOT-Medium.svg") format("svg"), url("fonts/ClanOT-Medium.woff") format("woff"), url("fonts/ClanOT-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+/* ClanNews Font */
+@font-face {
+  font-family: "ClanNews";
+  src: url("fonts/ClanOT-News.eot") format("eot"), url("fonts/ClanOT-News.otf") format("otf"), url("fonts/ClanOT-News.svg") format("svg"), url("fonts/ClanOT-News.woff") format("woff"), url("fonts/ClanOT-News.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
 body {
-  background-color: green; }
+  background-color: #FFFFFF; }
 
 ui-view.ng-scope {
   width: 100%; }
+
+.no-border {
+  border: none !important; }
+
+.padding {
+  padding: 5px !important; }
+
+.top-padding {
+  padding-top: 15px !important; }
+
+.tool-button {
+  background-color: #e22422;
+  font-family: "ClanNews";
+  border-width: 0.5px;
+  color: whitesmoke !important;
+  font-size: 1.4rem;
+  font-family: "ClanBook";
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: grey;
+  box-shadow: 1px 4px 20px -10px black;
+  font-weight: 900;
+  margin: 8px 12px; }

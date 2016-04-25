@@ -1,14 +1,14 @@
-<div class="primary title-bar">
-    <div class="center title">Channel Connection</div>
-</div>
-<div class="grid-block vertical">
+<r2o-view title="Home" class="grid-block vertical">
+<!-- <div class="primary title-bar"> -->
+<!--     <div class="center title">Channel Connection</div> -->
+<!-- </div> -->
     <div class="grid-content">
         <div ng-show="tools.length">
-            <section class="block-list">
-                <ul>
-                    <li class="cc-list-item" ng-repeat="tool in tools" ng-if="permissions[tool.name]">
-                        <a ui-sref="{{tool.state}}">
-                            <h6>{{::tool.displayname}}</h6>
+            <section class="block-list no-border">
+                <ul class="top-padding">
+                    <li class="no-border padding" ng-repeat="tool in tools" ng-if="permissions[tool.name]">
+                        <a class="button tool-button" ui-sref="{{tool.state}}">
+                            {{::tool.displayname}}
                         </a>
                     </li>
                 </ul>
@@ -24,4 +24,5 @@
             </section>
         </div>
     </div>
-</div>
+
+</r2o-view>
