@@ -8,7 +8,7 @@ function getUser(logonId) {
 	
 	const INTERNAL = "INTERNAL";
 	const EXTERNAL = "EXTERNAL";
-	const PATH = 'mediator-dev2/ws/getMobLdapPersonVS';
+	const PATH = 'mediator-test2/ws/getMobLdapPersonVS';
 	
 	var location = EXTERNAL;
 	var isExternal;
