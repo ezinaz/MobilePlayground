@@ -6,5 +6,6 @@
 angular.module('playground', [
     'ui.router',
     'ngAnimate',
-    'foundation'
+    'foundation',
+    'angularMoment'
 ]);

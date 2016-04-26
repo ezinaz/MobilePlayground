@@ -31,8 +31,11 @@
                 <ul>
                     <li ng-repeat="order in orders">
                         <a href="#">
-                            <h6>{{order.EndUserName}}</h6>
-                            <p>{{order.BookDate}} - {{order.StatusCode}}</p>
+                        	<br/>
+                        	PO#: {{order.CustomerPo}}  Book Date: {{moment(order.BookDate,'YYYY-MM-DD').format('MM/DD/YY')}} <br/>
+                        	End User: {{order.EndUserName}} <br/>
+                        	SO#: {{order.SalesOrder}}  Status: {{order.StatusCode}}
+                            
                         </a></li>
                 </ul>
             </section>

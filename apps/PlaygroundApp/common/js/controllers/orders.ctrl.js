@@ -8,7 +8,7 @@ angular.module('playground')
     .controller('OrdersCtrl', OrdersCtrl);
 
 
-function OrdersCtrl($scope, Orders) {
+function OrdersCtrl($scope, Orders, moment) {
     console.log('OrdersCtrl: load');
 
     //BINDABLE VARS
@@ -18,6 +18,7 @@ function OrdersCtrl($scope, Orders) {
     $scope.searchObject.customerPo = '';
     $scope.searchObject.searchType = $scope.searchOptions[0];
     $scope.orders = [];
+    $scope.moment = moment;
 
     //BINDABLE FUNCS
     $scope.getOrders = getOrders;
@@ -36,5 +37,5 @@ function OrdersCtrl($scope, Orders) {
     }
 }
 
-OrdersCtrl.$inject = ['$scope','Orders'];
+OrdersCtrl.$inject = ['$scope','Orders','moment'];
 

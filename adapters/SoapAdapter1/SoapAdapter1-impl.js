@@ -39,15 +39,15 @@ function getOrderStatusVS_ZqtcSalesorderSearch(params, headers){
 		},
 		
 		types: {
-			'tns:ZttqtcProdh': {
+			'tns:ZttqtcChar4': {
 				children: [
-					{'item': { type: 'tns:ZttqtcProdhLines' }}	
+					{'item': {  }}	
 				]
 			},
 
-			'tns:ZttqtcProdhLines': {
+			'tns:ZttqtcProdh': {
 				children: [
-					{'Prodh': {  }}	
+					{'item': { type: 'tns:ZttqtcProdhLines' }}	
 				]
 			},
 
@@ -84,9 +84,9 @@ function getOrderStatusVS_ZqtcSalesorderSearch(params, headers){
 				]
 			},
 
-			'tns:ZttqtcChar4': {
+			'tns:ZttqtcProdhLines': {
 				children: [
-					{'item': {  }}	
+					{'Prodh': {  }}	
 				]
 			}
 		}
