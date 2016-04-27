@@ -12,29 +12,32 @@ function OrdersCtrl($scope, Orders, moment) {
     console.log('OrdersCtrl: load');
 
     //BINDABLE VARS
-    $scope.searchOptions = ['PO', 'ID'];
-    $scope.searchObject = {};
-    $scope.searchObject.customerId = '';
-    $scope.searchObject.customerPo = '';
-    $scope.searchObject.searchType = $scope.searchOptions[0];
+    var searchObject = {};
+    searchObject.customerId = '0009000004'; //TODO:  remove hardcoded customer
     $scope.orders = [];
     $scope.moment = moment;
 
     //BINDABLE FUNCS
-    $scope.getOrders = getOrders;
 
     //INTERNAL VARS
 
     //INTERNAL FUNCS
     function getOrders() {
 
-        console.log('getOrders: ', $scope.searchObject);
+        console.log('getOrders: ', searchObject);
 
-        Orders.fetchOrders($scope.searchObject).then(function (orders) {
+        Orders.fetchOrders(searchObject).then(function (orders) {
             $scope.orders = orders;
         });
 
     }
+    
+    function activate() {
+    	getOrders();
+    }
+    
+    activate();
+    
 }
 
 OrdersCtrl.$inject = ['$scope','Orders','moment'];
