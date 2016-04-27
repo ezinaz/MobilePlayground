@@ -19,6 +19,32 @@
   font-weight: normal;
   font-style: normal; }
 
+/* Headers */
+h1 {
+  font-family: "ClanMedium";
+  font-weight: bold;
+  font-size: 1.25rem; }
+
+h2 {
+  font-family: "ClanMedium";
+  font-weight: bold;
+  font-size: 1rem; }
+
+h3 {
+  font-family: "ClanMedium";
+  font-weight: bold;
+  font-size: 0.875; }
+
+h4 {
+  font-family: "ClanNews";
+  font-weight: normal;
+  font-size: 0.875; }
+
+p {
+  font-family: "ClanNews";
+  font-weight: normal;
+  font-size: 0.875; }
+
 body {
   background-color: #FFFFFF; }
 
@@ -33,6 +59,12 @@ ui-view.ng-scope {
 
 .top-padding {
   padding-top: 15px !important; }
+
+.cc-list-item-odd {
+  background-color: #ffffff; }
+
+.cc-list-item-even {
+  background-color: #e4e4e4; }
 
 a.av-tool-button {
   background-color: #e22422;

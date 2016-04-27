@@ -9,7 +9,7 @@ function getOrders(options) {
 	var path = 'mediator-dev2/ws/getMobOrderStatusVS';
 
 	var customerId = options.customerId ? options.customerId : '0009000004';
-	var customerPo = options.customerPo ? options.customerPo : '123';
+	var customerPo = options.customerPo ? options.customerPo : '';
 	var searchType = options.searchType ? options.searchType : 'PO';
 
 	var soapRequestString = 
