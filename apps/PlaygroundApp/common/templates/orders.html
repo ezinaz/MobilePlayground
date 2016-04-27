@@ -1,35 +1,9 @@
 <cc-view title="Sales Order List" class="grid-block vertical">
     <div class="grid-content">
-        <br>
-        <form>
-            <label>
-                Customer ID
-                <input type="text" placeholder="Customer ID" ng-model="searchObject.customerId"/>
-            </label>
-            <label>
-                Customer PO
-                <input type="text" placeholder="Customer PO" ng-model="searchObject.customerPo"/>
-            </label>
-            <label>
-                Search Type
-                <select ng-model="searchObject.searchType">
-                    <option ng-repeat="item in ::searchOptions" value="{{searchOptions[$index]}}">
-                        {{searchOptions[$index]}}
-                    </option>
-                </select>
-            </label>
-
-            <button class="expand button" ng-click="getOrders()">Search Orders</button>
-
-        </form>
         <div ng-show="orders.length">
             <section class="block-list">
-                <header>{{orders.length}} Sales Orders</header>
                 <ul>
                     <li ng-repeat="order in orders">
-
-                            
-
                         <a href="#" ng-class-odd="'cc-list-item-odd'" ng-class-even="'cc-list-item-even'">
                         	<!-- First line of Order -->
                         	<div class="grid-block">
