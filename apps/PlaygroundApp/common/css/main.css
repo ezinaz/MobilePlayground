@@ -34,16 +34,31 @@ ui-view.ng-scope {
 .top-padding {
   padding-top: 15px !important; }
 
-.tool-button {
+a.av-tool-button {
   background-color: #e22422;
   font-family: "ClanNews";
   border-width: 0.5px;
   color: whitesmoke !important;
   font-size: 1.4rem;
-  font-family: "ClanBook";
   border-width: 0.5px;
   border-style: solid;
   border-color: grey;
   box-shadow: 1px 4px 20px -10px black;
   font-weight: 900;
   margin: 8px 12px; }
+
+a.av-tool-button:focus, a.av-tool-button:hover {
+  background-color: #e22422; }
+
+.av-custom-title-bar {
+  background-color: #e22422;
+  color: whitesmoke;
+  border: 1px solid grey;
+  padding: 1rem 0.5rem;
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: grey;
+  margin: 2px; }
+
+div.av-custom-title-bar > div.title > h1 {
+  color: whitesmoke; }

@@ -1,13 +1,10 @@
-<r2o-view title="Home" class="grid-block vertical">
-<!-- <div class="primary title-bar"> -->
-<!--     <div class="center title">Channel Connection</div> -->
-<!-- </div> -->
+<cc-view title="Channel Connection" class="grid-block vertical">
     <div class="grid-content">
         <div ng-show="tools.length">
             <section class="block-list no-border">
                 <ul class="top-padding">
                     <li class="no-border padding" ng-repeat="tool in tools" ng-if="permissions[tool.name]">
-                        <a class="button tool-button" ui-sref="{{tool.state}}">
+                        <a class="button av-tool-button" ui-sref="{{tool.state}}">
                             {{::tool.displayname}}
                         </a>
                     </li>
@@ -25,4 +22,4 @@
         </div>
     </div>
 
-</r2o-view>
+</cc-view>
