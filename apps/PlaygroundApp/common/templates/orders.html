@@ -1,41 +1,17 @@
 <div class="primary title-bar">
-    <div class="center title">Orders</div>
+    <div class="center title">Sales Order List</div>
 </div>
 <div class="grid-block vertical">
     <div class="grid-content">
-        <br>
-        <form>
-            <label>
-                Customer ID
-                <input type="text" placeholder="Customer ID" ng-model="searchObject.customerId"/>
-            </label>
-            <label>
-                Customer PO
-                <input type="text" placeholder="Customer PO" ng-model="searchObject.customerPo"/>
-            </label>
-            <label>
-                Search Type
-                <select ng-model="searchObject.searchType">
-                    <option ng-repeat="item in ::searchOptions" value="{{searchOptions[$index]}}">
-                        {{searchOptions[$index]}}
-                    </option>
-                </select>
-            </label>
-
-            <button class="expand button" ng-click="getOrders()">Search Orders</button>
-
-        </form>
         <div ng-show="orders.length">
             <section class="block-list">
-                <header>{{orders.length}} Sales Orders</header>
                 <ul>
                     <li ng-repeat="order in orders">
-                        <a href="#">
+                        <a href="#" ng-class-odd="'cc-list-item-odd'" ng-class-even="'cc-list-item-even'">
                         	<br/>
                         	PO#: {{order.CustomerPo}}  Book Date: {{moment(order.BookDate,'YYYY-MM-DD').format('MM/DD/YY')}} <br/>
                         	End User: {{order.EndUserName}} <br/>
                         	SO#: {{order.SalesOrder}}  Status: {{order.StatusCode}}
-                            
                         </a></li>
                 </ul>
             </section>
