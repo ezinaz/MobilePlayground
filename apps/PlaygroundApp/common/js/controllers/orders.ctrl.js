@@ -27,6 +27,7 @@ function OrdersCtrl($scope, Orders, moment) {
         console.log('getOrders: ', searchObject);
 
         Orders.fetchOrders(searchObject).then(function (orders) {
+        	
             $scope.orders = orders;
         });
 
