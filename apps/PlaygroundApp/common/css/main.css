@@ -23,27 +23,32 @@
 h1 {
   font-family: "ClanMedium";
   font-weight: bold;
-  font-size: 1.25rem; }
+  font-size: 1.25rem;
+  line-height: 1rem; }
 
 h2 {
   font-family: "ClanMedium";
   font-weight: bold;
-  font-size: 1rem; }
+  font-size: 1rem;
+  line-height: 1rem; }
 
 h3 {
   font-family: "ClanMedium";
   font-weight: bold;
-  font-size: 0.875; }
+  font-size: 0.875;
+  line-height: 1rem; }
 
 h4 {
   font-family: "ClanNews";
   font-weight: normal;
-  font-size: 0.875; }
+  font-size: 0.875;
+  line-height: 1rem; }
 
 p {
   font-family: "ClanNews";
   font-weight: normal;
-  font-size: 0.875; }
+  font-size: 0.875;
+  line-height: 1rem; }
 
 body {
   background-color: #FFFFFF; }
