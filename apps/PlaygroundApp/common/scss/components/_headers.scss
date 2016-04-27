@@ -1,0 +1,14 @@
+.av-custom-title-bar {
+	background-color: $color-avnet-red; 
+	color: whitesmoke; 
+	border: 1px solid grey;
+	padding: 1rem 0.5rem;
+ 	border-width: 0.5px;
+  	border-style: solid;
+  	border-color: grey;
+  	margin:2px;
+}
+
+div.av-custom-title-bar > div.title > h1 {
+	color:whitesmoke;
+}
