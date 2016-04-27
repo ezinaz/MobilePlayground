@@ -19,6 +19,32 @@
   font-weight: normal;
   font-style: normal; }
 
+/* Headers */
+h1 {
+  font-family: "ClanMedium";
+  font-weight: bold;
+  font-size: 1.25rem; }
+
+h2 {
+  font-family: "ClanMedium";
+  font-weight: bold;
+  font-size: 1rem; }
+
+h3 {
+  font-family: "ClanMedium";
+  font-weight: bold;
+  font-size: 0.875; }
+
+h4 {
+  font-family: "ClanNews";
+  font-weight: normal;
+  font-size: 0.875; }
+
+p {
+  font-family: "ClanNews";
+  font-weight: normal;
+  font-size: 0.875; }
+
 body {
   background-color: #FFFFFF; }
 

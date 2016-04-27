@@ -1,11 +1,11 @@
-<div class="primary title-bar">
-    <div class="center title">Orders</div>
-</div>
-<div class="grid-block vertical">
+<r2o-view title="Sales Order List" class="grid-block vertical">
+<!-- <div class="primary title-bar"> -->
+<!--     <div class="center title">Channel Connection</div> -->
+<!-- </div> -->
     <div class="grid-content">
-        <br>
+       <br>
         <form>
-            <label>
+ <!--            <label>
                 Customer ID
                 <input type="text" placeholder="Customer ID" ng-model="searchObject.customerId"/>
             </label>
@@ -21,7 +21,7 @@
                     </option>
                 </select>
             </label>
-
+-->
             <button class="expand button" ng-click="getOrders()">Search Orders</button>
 
         </form>
@@ -31,14 +31,34 @@
                 <ul>
                     <li ng-repeat="order in orders">
                         <a href="#">
-                        	<br/>
-                        	PO#: {{order.CustomerPo}}  Book Date: {{moment(order.BookDate,'YYYY-MM-DD').format('MM/DD/YY')}} <br/>
-                        	End User: {{order.EndUserName}} <br/>
-                        	SO#: {{order.SalesOrder}}  Status: {{order.StatusCode}}
-                            
+                        	<!-- First line of Order -->
+                        	<div class="grid-block">
+                        		<div id="customerpo" class="small-8">
+                        			<h3>PO#: {{order.CustomerPo}}</h3>
+                        		</div>
+								<div id="bookdate" class="small-2">
+									<h4>{{moment(order.BookDate,'YYYY-MM-DD').format('MM/DD/YY')}}</h4>
+								</div>
+                        	</div>
+                        	<!-- Second line of Order -->
+                        	<div class="grid-block">
+                        		<h4>{{order.EndUserName}}</h4>
+                        	</div>
+                        	<!-- Third line of Order -->
+                        	<div class="grid-block">
+                        		<div id="salesnumber" class="small-9">
+                        			<p>SO#: {{order.SalesOrder}}</p>
+                        		</div>
+								<div id="orderstatus" class="small-2">
+									<span ng-class="{ 'success label' : (order.StatusCode === 'Closed'), 'alert label' : (order.StatusCode === 'Open'), 'warning label' : (order.StatusCode === 'Partial') }">{{order.StatusCode}}</span>
+								</div>   
+								<div id="chevron" class="small-1">
+									<span class="icon-chevron-right" title="chevron right" aria-hidden="true"></span>
+								</div>                   	
+                        	</div>
                         </a></li>
                 </ul>
             </section>
         </div>
     </div>
-</div>
+</r2o-view>
