@@ -38,6 +38,7 @@ function OrdersCtrl($scope, Orders, moment) {
         	    	orders[i].StatusCode = 'Closed';
         	    }
         	}
+
             $scope.orders = orders;
         });
 

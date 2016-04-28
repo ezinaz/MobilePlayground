@@ -8,8 +8,7 @@ angular.module('playground')
  * @desc Service for managing Order data
  */
 
-
-function Orders($q) {
+function Orders($q, moment) {
 
     var service = {};
 
@@ -50,6 +49,9 @@ function Orders($q) {
         function loadFeedsSuccess(result) {
             console.log('Orders: fetchOrders: success', result, result.responseJSON.Envelope.Body.ZqtcSalesorderSearchResponse.Saleorders.item);
             var salesOrders = result.responseJSON.Envelope.Body.ZqtcSalesorderSearchResponse.Saleorders.item;
+            for (i=0; i < salesOrders.length;i++) {
+            	salesOrders[i].BookDate = moment(salesOrders[i].BookDate, 'YYYY-MM-DD');
+            }
             deferred.resolve(salesOrders);
         }
 
@@ -66,4 +68,4 @@ function Orders($q) {
     return service;
 }
 
-Orders.$inject = ['$q'];
+Orders.$inject = ['$q', 'moment'];

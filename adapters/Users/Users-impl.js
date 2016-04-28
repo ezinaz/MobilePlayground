@@ -90,3 +90,60 @@ function getSoapRequestString(logonId, location) {
 	
 }
 
+/**
+ * Retrieve customer id using lookup service
+ * @param logonId
+ */
+function getUserCustomerId(logonId) {
+
+	const PATH = 'mediator-dev2/ws/getMobResellerIdVS';
+	
+	// External lookup
+	var soapRequestString = getResellerIdSoapRequestString(logonId);
+	var input = getResellerIdInput(PATH, soapRequestString);
+	var response = {};
+	WL.Logger.info(input);
+	var userResponse = WL.Server.invokeHttp(input);
+	if (typeof userResponse.Envelope.Body.ZcrmGetResellerIdResponse.Bporg.Partner != 'undefined') {
+		response.companyId = userResponse.Envelope.Body.ZcrmGetResellerIdResponse.Bporg.Partner;
+	}
+
+	return response;
+
+}
+
+/**
+ * Construct soap request for getResellerId service
+ * @param logonId
+ * @param location
+ * @returns {String} soap request
+ */
+function getResellerIdSoapRequestString(logonId) {
+	var soapRequestString = 
+		'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:soap:functions:mc-style">'
+		+ '<soapenv:Header/>'
+		+ '<soapenv:Body>'
+		+ '<urn:ZcrmGetResellerId>'
+		+ '<Email>' + logonId + '</Email>'
+		+ '</urn:ZcrmGetResellerId>'
+		+ '</soapenv:Body>'
+		+ '</soapenv:Envelope>';	
+	return soapRequestString;
+}
+
+function getResellerIdInput(PATH, soapRequestString) {
+	var input = {
+	    method : 'post',
+	    returnedContentType : 'xml',
+	    path : PATH,
+		body : {
+			content : soapRequestString,
+			contentType : 'text/xml; charset=UTF-8'
+		},
+		headers : {
+	    	SOAPAction : 'urn:sap-com:document:sap:soap:functions:mc-style:ZWS_CRM_GET_RESELLER_ID:ZcrmGetResellerIdRequest'
+	    }
+	};
+	return input;
+}
+
