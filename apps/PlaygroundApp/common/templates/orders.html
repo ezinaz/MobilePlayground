@@ -3,6 +3,14 @@
         <div ng-show="orders.length">
             <section class="block-list">
                 <ul>
+<<<<<<< HEAD
+                    <li ng-repeat="order in orders | orderBy : 'BookDate' : true">
+                        <a ng-class-odd="'cc-list-item-odd'" ng-class-even="'cc-list-item-even'">
+                        	<br/>
+                        	PO#: {{order.CustomerPo}}  Book Date: {{order.BookDate.format('MM/DD/YY')}} <br/>
+                        	End User: {{order.EndUserName}} <br/>
+                        	SO#: {{order.SalesOrder}}  Status: {{order.StatusCode}}
+=======
                     <li ng-repeat="order in orders">
                         <a href="#" ng-class-odd="'cc-list-item-odd'" ng-class-even="'cc-list-item-even'">
                         	<!-- First line of Order -->
@@ -31,6 +39,7 @@
 								</div>                   	
                         	</div>
 
+>>>>>>> upstream/master
                         </a></li>
                 </ul>
             </section>
