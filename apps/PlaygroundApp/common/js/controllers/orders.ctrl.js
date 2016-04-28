@@ -24,10 +24,24 @@ function OrdersCtrl($scope, Orders, moment) {
     //INTERNAL FUNCS
     function getOrders() {
 
-        console.log('getOrders: ', searchObject);
+        console.log('getOrders: ', $scope.searchObject);
 
         Orders.fetchOrders(searchObject).then(function (orders) {
+<<<<<<< HEAD
         	
+=======
+        	for (i = 0; i < orders.length; i++) { 
+        	    if (orders[i].StatusCode == 'A') {
+        	    	orders[i].StatusCode = 'Open';
+        	    }
+        	    else if (orders[i].StatusCode == 'B') {
+        	    	orders[i].StatusCode = 'Partial';
+        	    }
+        	    else if (orders[i].StatusCode == 'C') {
+        	    	orders[i].StatusCode = 'Closed';
+        	    }
+        	}
+>>>>>>> upstream/master
             $scope.orders = orders;
         });
 
@@ -38,7 +52,6 @@ function OrdersCtrl($scope, Orders, moment) {
     }
     
     activate();
-    
 }
 
 OrdersCtrl.$inject = ['$scope','Orders','moment'];

@@ -1,4 +1,8 @@
 angular.module('playground')
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/master
     .factory('Orders', Orders);
 
 
@@ -8,7 +12,11 @@ angular.module('playground')
  */
 
 
+<<<<<<< HEAD
 function Orders($q, moment) {
+=======
+function Orders($q) {
+>>>>>>> upstream/master
 
     var service = {};
 
@@ -49,9 +57,12 @@ function Orders($q, moment) {
         function loadFeedsSuccess(result) {
             console.log('Orders: fetchOrders: success', result, result.responseJSON.Envelope.Body.ZqtcSalesorderSearchResponse.Saleorders.item);
             var salesOrders = result.responseJSON.Envelope.Body.ZqtcSalesorderSearchResponse.Saleorders.item;
+<<<<<<< HEAD
             for (i=0; i < salesOrders.length;i++) {
             	salesOrders[i].BookDate = moment(salesOrders[i].BookDate, 'YYYY-MM-DD');
             }
+=======
+>>>>>>> upstream/master
             deferred.resolve(salesOrders);
         }
 
@@ -68,4 +79,8 @@ function Orders($q, moment) {
     return service;
 }
 
+<<<<<<< HEAD
 Orders.$inject = ['$q', 'moment'];
+=======
+Orders.$inject = ['$q'];
+>>>>>>> upstream/master
