@@ -16,17 +16,17 @@ function HomeCtrl($scope, Users) {
 
     $scope.tools = [
         {
-            displayname: 'Requests',
+            displayname: 'REQUESTS',
             name: 'requests',
             state: 'app.home'
         },
         {
-            displayname: 'Orders',
+            displayname: 'ORDERS',
             name: 'orders',
             state: 'app.orders'
         },
         {
-        	displayname: 'Invoices',
+        	displayname: 'INVOICES',
             name: 'invoices',
             state: 'app.invoices'
         }

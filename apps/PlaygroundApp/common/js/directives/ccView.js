@@ -1,3 +1,4 @@
+
 /**
  * 
  */
@@ -21,10 +22,12 @@
 				scope : {
 					title : "@"
 				},
-				template : "<div class='primary av-custom-title-bar'><div class='center title'><h1>{{title}}</h1></div></div>"+
+				template : "<div class='av-custom-title-bar  grid-block'><div class='small-grid-block'></div><div class='grid-block'><h1>{{title}}</h1></div><div class='small-grid-block'></div></div>"+
 				"<div ng-transclude class='grid-block vertical'>"+
 				"</div>",
 				controller : "ccViewController"
 			};
 		});
+
+
 })();
