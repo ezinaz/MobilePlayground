@@ -3,16 +3,9 @@
         <div ng-show="orders.length">
             <section class="block-list">
                 <ul>
-<<<<<<< HEAD
+
                     <li ng-repeat="order in orders | orderBy : 'BookDate' : true">
                         <a ng-class-odd="'cc-list-item-odd'" ng-class-even="'cc-list-item-even'">
-                        	<br/>
-                        	PO#: {{order.CustomerPo}}  Book Date: {{order.BookDate.format('MM/DD/YY')}} <br/>
-                        	End User: {{order.EndUserName}} <br/>
-                        	SO#: {{order.SalesOrder}}  Status: {{order.StatusCode}}
-=======
-                    <li ng-repeat="order in orders">
-                        <a href="#" ng-class-odd="'cc-list-item-odd'" ng-class-even="'cc-list-item-even'">
                         	<!-- First line of Order -->
                         	<div class="grid-block">
                         		<div id="customerpo" class="small-8">
@@ -34,12 +27,11 @@
 								<div id="orderstatus" class="small-2">
 									<span ng-class="{ 'success label' : (order.StatusCode === 'Closed'), 'alert label' : (order.StatusCode === 'Open'), 'warning label' : (order.StatusCode === 'Partial') }">{{order.StatusCode}}</span>
 								</div>   
-								<div id="chevron" class="small-1">
+								<!--<div id="chevron" class="small-1">
 									<span class="icon-chevron-right" title="chevron right" aria-hidden="true"></span>
-								</div>                   	
+								</div>-->                 	
                         	</div>
 
->>>>>>> upstream/master
                         </a></li>
                 </ul>
             </section>
