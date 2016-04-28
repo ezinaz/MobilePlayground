@@ -27,9 +27,6 @@ function OrdersCtrl($scope, Orders, moment) {
         console.log('getOrders: ', $scope.searchObject);
 
         Orders.fetchOrders(searchObject).then(function (orders) {
-<<<<<<< HEAD
-        	
-=======
         	for (i = 0; i < orders.length; i++) { 
         	    if (orders[i].StatusCode == 'A') {
         	    	orders[i].StatusCode = 'Open';
@@ -41,7 +38,7 @@ function OrdersCtrl($scope, Orders, moment) {
         	    	orders[i].StatusCode = 'Closed';
         	    }
         	}
->>>>>>> upstream/master
+
             $scope.orders = orders;
         });
 
