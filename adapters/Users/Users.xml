@@ -35,5 +35,6 @@
 	</connectivity>
 
 	<procedure name="getUser" audit="true"/>
+	<procedure name="getUserCustomerId" audit="true"/>
 	
 </wl:adapter>
