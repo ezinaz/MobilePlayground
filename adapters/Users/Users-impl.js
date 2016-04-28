@@ -90,7 +90,6 @@ function getSoapRequestString(logonId, location) {
 	
 }
 
-<<<<<<< HEAD
 /**
  * Retrieve customer id using lookup service
  * @param logonId
@@ -148,6 +147,3 @@ function getResellerIdInput(PATH, soapRequestString) {
 	return input;
 }
 
-
-=======
->>>>>>> upstream/master
