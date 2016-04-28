@@ -1,15 +1,16 @@
-a.av-tool-button {
+li > a.av-tool-button {
 	background-color: $color-avnet-red;
 	font-family: "ClanNews";
 	border-width: 0.5px;
-  	color: whitesmoke !important;
+  	color: #FFFFFF;
   	font-size: 1.4rem;
  	border-width: 0.5px;
   	border-style: solid;
-  	border-color: grey;
+  	border-color: #DADADA;
   	box-shadow: 1px 4px 20px -10px black;
   	font-weight: 900;
   	margin: 8px 12px;
+  	padding: 1.2rem 0.8rem 0.8rem 0.8rem;
 }
 a.av-tool-button:focus, a.av-tool-button:hover {
 	background-color: $color-avnet-red;
