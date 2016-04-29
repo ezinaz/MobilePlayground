@@ -24,12 +24,15 @@ function HomeCtrl($scope, Users) {
             displayname: 'ORDERS',
             name: 'orders',
             state: 'app.orders'
-        },
-        {
-        	displayname: 'INVOICES',
-            name: 'invoices',
-            state: 'app.invoices'
         }
+     
+//		  Hiding invoices button for now -- don't forget the comma below when we show it again
+//        ,
+//        {
+//        	displayname: 'INVOICES',
+//            name: 'invoices',
+//            state: 'app.invoices'
+//        }
     ];
 
 

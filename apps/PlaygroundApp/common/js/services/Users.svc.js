@@ -31,7 +31,6 @@ function Users($q,$timeout) {
 	//bindable methods
 	service.getUser = getUser;
 
-
 	//internals
 	var mockRoles = [
 		{
