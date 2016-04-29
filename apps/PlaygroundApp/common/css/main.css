@@ -1,4 +1,3 @@
-
 /* ClanBook Font */
 @font-face {
   font-family: "ClanBook";
@@ -71,6 +70,9 @@ ui-view.ng-scope {
 
 .cc-list-item-even {
   background-color: #e4e4e4; }
+
+.cc-list-item-spacing {
+  padding-left: 8px; }
 
 li > a.av-tool-button {
   background-color: #e22422;

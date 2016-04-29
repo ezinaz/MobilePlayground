@@ -7,7 +7,7 @@
                     <li ng-repeat="order in orders | orderBy : 'BookDate' : true">
                         <a ng-class-odd="'cc-list-item-odd'" ng-class-even="'cc-list-item-even'">
                         	<!-- First line of Order -->
-                        	<div class="grid-block">
+                        	<div class="grid-block cc-list-item-spacing">
                         		<div id="customerpo" class="small-8">
                         			<h3>PO#: {{order.CustomerPo}}</h3>
                         		</div>
@@ -16,11 +16,11 @@
 								</div>
                         	</div>
                         	<!-- Second line of Order -->
-                        	<div class="grid-block">
+                        	<div class="grid-block cc-list-item-spacing">
                         		<h4>{{order.EndUserName}}</h4>
                         	</div>
                         	<!-- Third line of Order -->
-                        	<div class="grid-block">
+                        	<div class="grid-block cc-list-item-spacing">
                         		<div id="salesnumber" class="small-9">
                         			<p>SO#: {{order.SalesOrder}}</p>
                         		</div>
