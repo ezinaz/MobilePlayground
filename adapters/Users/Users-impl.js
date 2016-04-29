@@ -38,6 +38,9 @@ function getUser(logonId) {
 		var userData = {};
 		userData = userResponse.Envelope.Body.getLdapPersonResponse.getLdapPersonResponse.results;
 		userData.isExternalUser = isExternal;
+		//Get customerId
+		var customerIdObject = getUserCustomerId(logonId);
+		userData.customerId = customerIdObject.customerId;
 		return { 
 			userData: userData
 		}				
@@ -105,11 +108,10 @@ function getUserCustomerId(logonId) {
 	WL.Logger.info(input);
 	var userResponse = WL.Server.invokeHttp(input);
 	if (typeof userResponse.Envelope.Body.ZcrmGetResellerIdResponse.Bporg.Partner != 'undefined') {
-		response.companyId = userResponse.Envelope.Body.ZcrmGetResellerIdResponse.Bporg.Partner;
+		response.customerId = userResponse.Envelope.Body.ZcrmGetResellerIdResponse.Bporg.Partner;
 	}
 
 	return response;
-
 }
 
 /**
