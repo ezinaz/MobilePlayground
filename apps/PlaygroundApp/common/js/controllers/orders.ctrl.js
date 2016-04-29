@@ -4,9 +4,7 @@
  */
 
 angular.module('playground')
-
     .controller('OrdersCtrl', OrdersCtrl);
-
 
 function OrdersCtrl($scope, Orders, moment) {
     console.log('OrdersCtrl: load');
@@ -16,6 +14,24 @@ function OrdersCtrl($scope, Orders, moment) {
     searchObject.customerId = '0009000004'; //TODO:  remove hardcoded customer
     $scope.orders = [];
     $scope.moment = moment;
+    
+    var allorders = [];
+    var isAtEnd = false;
+    $scope.items = [];
+    
+    var counter = 0;
+    
+    $scope.loadMore = function() {
+    	if (!isAtEnd) {
+        	for(var i = 0; i <= 10; i++) {
+        		$scope.orders.push(allorders[counter + i]);
+        		counter += 1;
+        		if (counter >= allorders.length) {
+        			isAtEnd = true;
+        		}
+        	}    		
+    	}
+    }    
 
     //BINDABLE FUNCS
 
@@ -39,17 +55,23 @@ function OrdersCtrl($scope, Orders, moment) {
         	    }
         	}
 
-            $scope.orders = orders;
+            allorders = orders;
+            console.log('allorders', allorders);
+        	$scope.loadMore();
         });
 
     }
     
     function activate() {
     	getOrders();
+
     }
     
     activate();
 }
 
 OrdersCtrl.$inject = ['$scope','Orders','moment'];
+
+
+
 

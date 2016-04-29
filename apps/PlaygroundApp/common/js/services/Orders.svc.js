@@ -17,10 +17,7 @@ function Orders($q, moment) {
 
     service.fetchOrders = fetchOrders;
 
-
     //internals
-
-
     function fetchOrders(searchObject) {
         var deferred = $q.defer();
 
@@ -52,6 +49,15 @@ function Orders($q, moment) {
             for (i=0; i < salesOrders.length;i++) {
             	salesOrders[i].BookDate = moment(salesOrders[i].BookDate, 'YYYY-MM-DD');
             }
+            // sort descending
+            salesOrders.sort(function(a, b) {
+                //a = new Date(a.BookDate);
+                //b = new Date(b.BookDate);
+                //return a>b ? -1 : a<b ? 1 : 0;
+            	adate = a.BookDate.toDate();
+            	bdate = b.BookDate.toDate();
+            	return bdate - adate;
+            });
             deferred.resolve(salesOrders);
         }
 

@@ -1,10 +1,9 @@
 <cc-view title="Sales Order List" class="grid-block vertical">
-    <div class="grid-content">
-        <div ng-show="orders.length">
+    <div class="grid-content" when-scrolled="loadMore()" style="overflow: auto;">
+        <div ng-show="orders.length" >
             <section class="block-list">
                 <ul>
-
-                    <li ng-repeat="order in orders | orderBy : 'BookDate' : true">
+                    <li ng-repeat="order in orders">
                         <a ng-class-odd="'cc-list-item-odd'" ng-class-even="'cc-list-item-even'">
                         	<!-- First line of Order -->
                         	<div class="grid-block">
